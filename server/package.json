@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm run dev --prefix ../client",
+    "server": "nodemon --inspect index.js",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \" npm run client\""
+  },
+  "author": "Ihor_S",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.8",
+    "mongoose-paginate-v2": "^1.4.2"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1"
+  }
+}

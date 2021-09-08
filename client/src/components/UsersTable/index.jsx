@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Icon, Segment, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useUsersActions } from '../../redux/actions';
 import { parseDate, parseDateWithMinutes } from '../../helpers/parseDate';
 
-const TableUsers = ({ users, isUsersLoading, fetchUsers, children }) => {
+const UsersTable = ({ users, isUsersLoading, fetchUsers, children }) => {
   const { deleteUser } = useUsersActions();
   const titles = ['Name', 'Surname', 'Phone', 'Email', 'Date of Birthday', 'Updated At', 'Actions'];
 
@@ -55,4 +56,11 @@ const TableUsers = ({ users, isUsersLoading, fetchUsers, children }) => {
   );
 };
 
-export default TableUsers;
+UsersTable.propTypes = {
+  users: PropTypes.array,
+  isUsersLoading: PropTypes.bool,
+  fetchUsers: PropTypes.func,
+  children: PropTypes.any,
+};
+
+export default UsersTable;

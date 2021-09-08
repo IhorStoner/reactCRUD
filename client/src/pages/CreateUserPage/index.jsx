@@ -32,7 +32,7 @@ const CreateUserPage = () => {
     <div>
       <Header />
       <NewUserForm onSubmit={onSubmit} />
-      <Confirm msg={confirmMsg} onClose={setConfirmMsg} open={confirmMsg} />
+      <Confirm msg={confirmMsg} onClose={setConfirmMsg} open={!!confirmMsg} />
     </div>
   );
 };

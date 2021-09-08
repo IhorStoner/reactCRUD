@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-import HomePage from './pages/UsersPage';
-import NotFoundPage from './pages/NotFoundPage';
-import CreateUserPage from './pages/CreateUserPage';
-import UpdateUserPage from './pages/UpdateUserPage';
+import HomePage from './pages/UsersPage/index';
+import NotFoundPage from './pages/NotFoundPage/index';
+import CreateUserPage from './pages/CreateUserPage/index';
+import UpdateUserPage from './pages/UpdateUserPage/index';
 
 const Routes = () => {
   return (

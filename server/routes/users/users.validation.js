@@ -5,6 +5,6 @@ exports.userFieldValidation = (req, res, next) => {
     return next();
   }
   res.status(400).send({
-    error: 'Missing requied arguments',
+    error: 'Missing required arguments',
   });
 };

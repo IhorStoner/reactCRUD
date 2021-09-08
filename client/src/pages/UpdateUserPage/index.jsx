@@ -36,7 +36,7 @@ const UpdateUserPage = () => {
     <>
       <Header />
       <UpdateUserForm onSubmit={onSubmit} />
-      <Confirm msg={confirmMsg} onClose={setConfirmMsg} open={confirmMsg} />
+      <Confirm msg={confirmMsg} onClose={setConfirmMsg} open={!!confirmMsg} />
     </>
   );
 };

@@ -11,7 +11,8 @@ const UserForm = ({ handleSubmit, valid, submitting }) => {
   return (
     <Segment padded>
       <Form
-        widths={5}
+        data-testid='form'
+        width={5}
         onSubmit={handleSubmit}
         style={{ maxWidth: '500px', margin: '0 auto', display: 'flex', justifyContent: 'center', flexDirection: 'column' }}
       >

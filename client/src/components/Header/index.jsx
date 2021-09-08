@@ -9,10 +9,10 @@ const Header = () => {
     <header>
       <Segment inverted style={{ borderRadius: 0 }}>
         <Menu inverted pointing secondary>
-          <Link to={'/'}>
+          <Link data-testid='link' to={'/'}>
             <Menu.Item name='Users' active={pathname === '/'} />
           </Link>
-          <Link to={'/create'}>
+          <Link data-testid='link' to={'/create'}>
             <Menu.Item name='Create New User' active={pathname === '/create'} />
           </Link>
         </Menu>

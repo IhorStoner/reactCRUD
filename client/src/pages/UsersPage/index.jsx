@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Header from '../../components/Header';
 import { useUsersActions } from '../../redux/actions';
 import { getCountPages, getUsers, getUsersLoading } from '../../redux/selectors/usersSelectors';
-import TableUsers from '../../components/TableUsers';
+import UsersTable from '../../components/UsersTable';
 import { Pagination } from 'semantic-ui-react';
 
 const HomePage = () => {
@@ -23,9 +23,9 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <TableUsers users={users} isUsersLoading={isUsersLoading} fetchUsers={() => fetchUsers({ currentPage, perPage })}>
+      <UsersTable users={users} isUsersLoading={isUsersLoading} fetchUsers={() => fetchUsers({ currentPage, perPage })}>
         <Pagination defaultActivePage={currentPage} totalPages={totalPages} onPageChange={(e, data) => setCurrentPage(data.activePage)} />
-      </TableUsers>
+      </UsersTable>
     </>
   );
 };

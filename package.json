@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/IhorStoner/reactCRUD/issues"
   },
-  "homepage": "https://github.com/IhorStoner/reactCRUD#readme"
+  "homepage": "https://github.com/IhorStoner/reactCRUD#readme",
+  "dependencies": {
+    "puppeteer": "^10.4.0"
+  }
 }

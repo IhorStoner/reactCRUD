@@ -29,5 +29,8 @@ jobs:
       
     - run: |
             npm ci
-            cd ./client
+            cd ./server
+            npm install
+            cd ../client
+            npm install
             npm run test

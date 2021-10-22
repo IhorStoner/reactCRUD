@@ -1,8 +1,4 @@
-# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Node.js CI
-
+name: Tests
 on:
   push:
     branches: [ master ]
@@ -10,27 +6,39 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  ci:
+    runs-on: ubuntu-20.04
     container: lironavon/docker-puppeteer-container:14.16.0
-    strategy:
-      matrix:
-        node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    env:
+      CI: true
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-      
-    - run: |
-            npm ci
-            cd ./server
-            npm install
-            cd ../client
-            npm install
-            npm run test
+      # add git to the container and set it up with the token
+      - name: setup git in container
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # cache the dependencies from any node_modules directory
+      - name: cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+
+      # install the dependencies
+      - name: install dependencies
+        run: |
+          npm install
+          cd ./server
+          npm install
+          cd ../client
+          npm install
+          cd ../
+          npm start
+          cd ./client
+          npm run test
+
+
+      # run the tests
+      - name: test
+        run: npm test

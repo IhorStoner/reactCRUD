@@ -31,7 +31,7 @@ jobs:
       run: ls -la
       
     - run: |
-            cd /client
+            cd ./client
             npm install
             cd ../server
             npm install

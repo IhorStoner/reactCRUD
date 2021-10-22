@@ -28,7 +28,6 @@ jobs:
         cache: 'npm'
     - name: List current folder
     - run: ls -la
-    
     - run: cd ~/server 
     - run: npm run dev
     - run: cd ~/client
